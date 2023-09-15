@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://20otf.tres" type="DynamicFont" id=1]
+[ext_resource path="res://TvInfo.gd" type="Script" id=2]
+[ext_resource path="res://View.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+
+[node name="View" type="Control"]
+rect_pivot_offset = Vector2( -677, -143 )
+script = ExtResource( 3 )
+
+[node name="side" type="ScrollContainer" parent="."]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 326.0
+margin_bottom = 275.0
+custom_styles/bg = SubResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="side"]
+
+[node name="TvInfo" type="VBoxContainer" parent="."]
+visible = false
+margin_left = 345.0
+margin_top = 5.0
+margin_right = 670.0
+margin_bottom = 135.0
+script = ExtResource( 2 )
+
+[node name="Title" type="Label" parent="TvInfo"]
+margin_right = 325.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 1 )
+text = "title"
+
+[node name="watched" type="LineEdit" parent="TvInfo"]
+margin_top = 32.0
+margin_right = 325.0
+margin_bottom = 70.0
+custom_fonts/font = ExtResource( 1 )
+placeholder_text = "看到"
+
+[node name="all" type="LineEdit" parent="TvInfo"]
+margin_top = 74.0
+margin_right = 325.0
+margin_bottom = 112.0
+custom_fonts/font = ExtResource( 1 )
+placeholder_text = "总集数"
+
+[node name="ProgressBar" type="ProgressBar" parent="TvInfo"]
+margin_top = 116.0
+margin_right = 325.0
+margin_bottom = 130.0
+
+[node name="save" type="Button" parent="TvInfo"]
+margin_top = 134.0
+margin_right = 325.0
+margin_bottom = 168.0
+custom_fonts/font = ExtResource( 1 )
+text = "保存数据"
+
+[connection signal="text_changed" from="TvInfo/watched" to="." method="_on_watched_text_changed"]
+[connection signal="text_changed" from="TvInfo/watched" to="TvInfo" method="_on_watched_text_changed"]
+[connection signal="text_changed" from="TvInfo/all" to="TvInfo" method="_on_all_text_changed"]
+[connection signal="pressed" from="TvInfo/save" to="." method="_on_save_pressed"]
