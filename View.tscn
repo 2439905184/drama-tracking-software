@@ -20,7 +20,6 @@ custom_styles/bg = SubResource( 1 )
 [node name="VBoxContainer" type="VBoxContainer" parent="side"]
 
 [node name="TvInfo" type="VBoxContainer" parent="."]
-visible = false
 margin_left = 345.0
 margin_top = 5.0
 margin_right = 670.0
@@ -59,7 +58,15 @@ margin_bottom = 168.0
 custom_fonts/font = ExtResource( 1 )
 text = "保存数据"
 
+[node name="remove" type="Button" parent="TvInfo"]
+margin_top = 172.0
+margin_right = 325.0
+margin_bottom = 206.0
+custom_fonts/font = ExtResource( 1 )
+text = "删除此条"
+
 [connection signal="text_changed" from="TvInfo/watched" to="." method="_on_watched_text_changed"]
 [connection signal="text_changed" from="TvInfo/watched" to="TvInfo" method="_on_watched_text_changed"]
 [connection signal="text_changed" from="TvInfo/all" to="TvInfo" method="_on_all_text_changed"]
 [connection signal="pressed" from="TvInfo/save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="TvInfo/remove" to="." method="_on_remove_pressed"]

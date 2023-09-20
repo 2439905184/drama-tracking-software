@@ -39,7 +39,30 @@ func _on_save_pressed():
 	data_file.close()
 	pass
 
-
+func _on_remove_pressed():
+	Global.data.erase(current_title)
+	var data_file = File.new()
+	data_file.open("user://data.json",File.WRITE_READ)
+	data_file.store_string(to_json(Global.data))
+	data_file.close()
+	$TvInfo.hide()
+#	删除暂时未实现
+#	var to_del_node = get_tree().current_scene.get_node("View/side/VBoxContainer/"+current_title)
+#	print(to_del_node)
+#	var root = get_node("side/VBoxContainer")
+#	var c = root.get_child(0)
+#	var txt = c.get("text")
+#	print(txt)
+#	print(current_title)
+#	if current_title == txt:
+#		print("ok")
+#	else:
+#		print("string has bug")
+#	print(root.get_node(current_title))
+	pass
+	
 func _on_watched_text_changed(new_text):
 	current_progress = int(new_text)
 	pass
+
+

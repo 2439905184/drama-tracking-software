@@ -13,40 +13,62 @@ margin_bottom = 14.0
 custom_fonts/font = ExtResource( 1 )
 text = "追剧记录软件"
 
+[node name="read2" type="Label" parent="."]
+margin_left = 5.0
+margin_top = 402.0
+margin_right = 758.0
+margin_bottom = 430.0
+custom_fonts/font = ExtResource( 1 )
+text = "C:\\Users\\me\\AppData\\Roaming\\Godot\\app_userdata\\追剧记录软件\\data.json"
+
 [node name="Input" type="HBoxContainer" parent="."]
 margin_left = 1.0
 margin_top = 25.0
-margin_right = 539.0
+margin_right = 752.0
 margin_bottom = 65.0
 
 [node name="title" type="LineEdit" parent="Input"]
-margin_right = 211.0
+margin_right = 201.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 placeholder_text = "请输入电视剧名字"
 
 [node name="jishu" type="LineEdit" parent="Input"]
-margin_left = 215.0
-margin_right = 426.0
+margin_left = 205.0
+margin_right = 407.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 placeholder_text = "请输入电视剧总集数"
 
 [node name="add" type="Button" parent="Input"]
-margin_left = 430.0
-margin_right = 482.0
+margin_left = 411.0
+margin_right = 463.0
 margin_bottom = 40.0
 custom_fonts/font = ExtResource( 1 )
 text = "添加"
 
 [node name="read" type="Button" parent="Input"]
-margin_left = 486.0
-margin_right = 538.0
+margin_left = 467.0
+margin_right = 519.0
 margin_bottom = 40.0
 custom_fonts/font = ExtResource( 1 )
 text = "读取"
+
+[node name="remove" type="Button" parent="Input"]
+margin_left = 523.0
+margin_right = 655.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 1 )
+text = "删除存档文件"
+
+[node name="flush" type="Button" parent="Input"]
+margin_left = 659.0
+margin_right = 751.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 1 )
+text = "刷新界面"
 
 [node name="View" parent="." instance=ExtResource( 2 )]
 margin_left = -1.0
@@ -64,3 +86,5 @@ text = "使用说明，每添加一个电视剧名词后，输入已经观看的
 
 [connection signal="pressed" from="Input/add" to="." method="_on_add_pressed"]
 [connection signal="pressed" from="Input/read" to="." method="_on_read_pressed"]
+[connection signal="pressed" from="Input/remove" to="." method="_on_remove_pressed"]
+[connection signal="pressed" from="Input/flush" to="." method="_on_flush_pressed"]
